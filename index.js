@@ -27,15 +27,17 @@ const josa = (josa1, josa2) => w =>
 
 // string -> string
 // Given a word, determines appropriate josa.
-const eunNeun     = josa('은', '는')
-const iGa         = josa('이', '가')
-const eulLeul     = josa('을', '를')
-const gwaWa       = josa('과', '와')
+const eunNeun     = josa('은',     '는')
+const iGa         = josa('이',     '가')
+const eulLeul     = josa('을',     '를')
+const gwaWa       = josa('과',     '와')
 const irangRang   = josa('이랑',   '랑')
 const inaNa       = josa('이나',   '나')
 const iraseoRaseo = josa('이라서', '라서')
 const euroRo = w =>
   tail(w) === 8 ? '로' : josa('으로', '로')(w)
+const ieyoYeyo    = josa('이에요', '예요')
+const iragoRago   = josa('이라고', '라고')
 
 // string -> string
 // Appends an appropriate josa to the given word.
@@ -47,6 +49,8 @@ const addIrangRang   = w => w + irangRang(w)
 const addInaNa       = w => w + inaNa(w)
 const addIraseoRaseo = w => w + iraseoRaseo(w)
 const addEuroRo      = w => w + euroRo(w)
+const addIeyoYeyo    = w => w + ieyoYeyo(w)
+const addIragoRago   = w => w + iragoRago(w)
 
 const table = { '은':     addEunNeun
               , '는':     addEunNeun
@@ -64,10 +68,14 @@ const table = { '은':     addEunNeun
               , '라서':   addIraseoRaseo
               , '으로':   addEuroRo
               , '로':     addEuroRo
+              , '이에요': addIeyoYeyo
+              , '예요':   addIeyoYeyo
+              , '이라고': addIragoRago
+              , '라고':   addIragoRago
               }
 
 // string -> string
-// Fills in the josa placeholders.
+// Fills in the josa placeholders: 친구#{이} 학교#{으로} -> 친구가 학교로
 const fillInJosa = str =>
   str.replace( /(\S+)#\{(\S+)\}/g
              , (_, p1, p2) => table[p2](p1)
@@ -83,6 +91,8 @@ module.exports = { tail
                  , inaNa
                  , iraseoRaseo
                  , euroRo
+                 , ieyoYeyo
+                 , iragoRago
 
                  , addEunNeun
                  , addIGa
@@ -92,6 +102,8 @@ module.exports = { tail
                  , addInaNa
                  , addIraseoRaseo
                  , addEuroRo
+                 , addIeyoYeyo
+                 , addIragoRago
 
                  , fillInJosa
                  }

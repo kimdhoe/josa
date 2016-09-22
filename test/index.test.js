@@ -10,6 +10,8 @@ const { tail
       , inaNa
       , iraseoRaseo
       , euroRo
+      , ieyoYeyo
+      , iragoRago
 
       , addEunNeun
       , addIGa
@@ -19,6 +21,8 @@ const { tail
       , addInaNa
       , addIraseoRaseo
       , addEuroRo
+      , addIeyoYeyo
+      , addIragoRago
 
       , fillInJosa
 } = require('../index')
@@ -105,6 +109,20 @@ describe('euroRo', () => {
 
   it('produces 로, given a word with tail consonant ㄹ', () => {
     assert.equal(euroRo('교실'), '로')
+  })
+})
+
+describe('ieyoYeyo', () => {
+  it('produces 이에요 or 예요, depending on the given word', () => {
+    assert.equal(ieyoYeyo('선생님'), '이에요')
+    assert.equal(ieyoYeyo('친구'),   '예요')
+  })
+})
+
+describe('iragoRago', () => {
+  it('produces 이라고 or 라고, depending on the given word', () => {
+    assert.equal(iragoRago('선생님'), '이라고')
+    assert.equal(iragoRago('친구'),   '라고')
   })
 })
 

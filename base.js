@@ -8,12 +8,12 @@ const josa = (josa1, josa2) => w =>
 
 // string -> string
 // Given a word, determines appropriate josa.
-const eunNeun     = josa('은',     '는')
-const iGa         = josa('이',     '가')
-const eulLeul     = josa('을',     '를')
-const gwaWa       = josa('과',     '와')
-const irangRang   = josa('이랑',   '랑')
-const inaNa       = josa('이나',   '나')
+const eunNeun     = josa('은', '는')
+const iGa         = josa('이', '가')
+const eulLeul     = josa('을', '를')
+const gwaWa       = josa('과', '와')
+const irangRang   = josa('이랑', '랑')
+const inaNa       = josa('이나', '나')
 const iraseoRaseo = josa('이라서', '라서')
 const euroRo = w =>
   tail(w) === 8 ? '로' : josa('으로', '로')(w)

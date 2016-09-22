@@ -10,11 +10,8 @@ const tail = w =>
 const hasTail= w => {
   const lastChar = w[w.length - 1]
 
-  if (lastChar.match(/\d/)) {
-    if ('2459'.indexOf(lastChar) < 0)
-      return true
-    return false
-  }
+  if (lastChar.match(/\d/))
+    return ('2459'.indexOf(lastChar) < 0)
 
   return tail(w) !== 0
 }

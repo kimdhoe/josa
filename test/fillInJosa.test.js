@@ -51,6 +51,51 @@ describe('fillInJosa()', () => {
                 )
   })
 
+  it('can handle English words', () => {
+    assert.equal( fillInJosa('arrival#{는} 어라이벌#{이?}다')
+                , 'arrival은 어라이벌이다'
+                )
+    assert.equal( fillInJosa('attendance#{은} 어텐던스#{이?}다')
+                , 'attendance는 어텐던스다'
+                )
+    assert.equal( fillInJosa('vacation#{는} 배캐이션#{이?}다')
+                , 'vacation은 배캐이션이다'
+                )
+    assert.equal( fillInJosa('departure#{은} 디파쳐#{이?}다')
+                , 'departure는 디파쳐다'
+                )
+    assert.equal( fillInJosa('agreement#{은} 어그리먼트#{이?}다')
+                , 'agreement는 어그리먼트다'
+                )
+    assert.equal( fillInJosa('age#{은} 에이지#{이?}다')
+                , 'age는 에이지다'
+                )
+    assert.equal( fillInJosa('landing#{는} 랜딩#{이?}다')
+                , 'landing은 랜딩이다'
+                )
+    assert.equal( fillInJosa('ceremony#{은} 세레모니#{이?}다')
+                , 'ceremony는 세레모니다'
+                )
+    assert.equal( fillInJosa('happiness#{은} 해피니스#{이?}다')
+                , 'happiness는 해피니스다'
+                )
+    assert.equal( fillInJosa('Anne#{는} 앤#{이?}다')
+                , 'Anne은 앤이다'
+                )
+    assert.equal( fillInJosa('Engineer#{은} 엔지니어#{이?}다')
+                , 'Engineer는 엔지니어다'
+                )
+  })
+
+  it('can handle English initials', () => {
+    assert.equal( fillInJosa('A.P.I.#{은} D.S.L#{는}')
+                , 'A.P.I.는 D.S.L은'
+                )
+    assert.equal( fillInJosa('에이전트p#{은} L#{이?}다')
+                , '에이전트p는 L이다'
+                )
+  })
+
   it('ignores words inside parentheses.', () => {
     assert.equal( fillInJosa('친구(홍길동)#{이} 온다')
                 , '친구(홍길동)가 온다'

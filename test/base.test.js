@@ -9,7 +9,8 @@ const { josaPicker
       , inaNa
       , euroRo
       , ieyoYeyo
-      , iyeotYeot
+      , ieotYeot
+      , ieoYeo
       , iraRa
       , aYa
       , iyuYu
@@ -89,10 +90,17 @@ describe('#Base Functions', () => {
       })
     })
 
-    describe('iyeotYeot()', () => {
+    describe('ieotYeot()', () => {
       it('produces 이었 or 였, depending on the given word.', () => {
-        assert.equal(iyeotYeot('선생님'), '이었')
-        assert.equal(iyeotYeot('친구'), '였')
+        assert.equal(ieotYeot('선생님'), '이었')
+        assert.equal(ieotYeot('친구'), '였')
+      })
+    })
+
+    describe('ieoYeo()', () => {
+      it('produces 이어 or 여, depending on the given word.', () => {
+        assert.equal(ieoYeo('선생님'), '이어')
+        assert.equal(ieoYeo('친구'), '여')
       })
     })
 

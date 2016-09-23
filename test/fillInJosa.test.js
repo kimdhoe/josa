@@ -25,19 +25,22 @@ describe('fillInJosa()', () => {
     assert.equal( fillInJosa('2#{예요} 7#{예요} 선생님#{예요} 친구#{이에요}')
                 , '2예요 7이에요 선생님이에요 친구예요'
                 )
+    assert.equal( fillInJosa('2#{이어}서 7#{여} 친구#{이어}서 선생님#{여}서는')
+                , '2여서 7이어 친구여서 선생님이어서는'
+                )
     assert.equal( fillInJosa('2#{이라}고 7#{라} 친구#{이라}서 선생님#{라}는')
                 , '2라고 7이라 친구라서 선생님이라는'
                 )
     assert.equal( fillInJosa('2#{이었}고 8#{였}는데 친구#{이었}던 선생님#{였}다')
                 , '2였고 8이었는데 친구였던 선생님이었다'
                 )
-    assert.equal( fillInJosa('아무개#{아} 홍길동#{야}')
+    assert.equal( fillInJosa('아무개#{-아} 홍길동#{-야}')
                 , '아무개야 홍길동아'
                 )
-    assert.equal( fillInJosa('아무개#{이여} 홍길동#{여}')
+    assert.equal( fillInJosa('아무개#{-이여} 홍길동#{-여}')
                 , '아무개여 홍길동이여'
                 )
-    assert.equal( fillInJosa('아무개#{이시여} 홍길동#{시여}')
+    assert.equal( fillInJosa('아무개#{-이시여} 홍길동#{-시여}')
                 , '아무개시여 홍길동이시여'
                 )
   })

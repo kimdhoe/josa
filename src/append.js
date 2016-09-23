@@ -5,7 +5,8 @@ const { eunNeun, iGa
       , inaNa
       , euroRo
       , ieyoYeyo
-      , iyeotYeot
+      , ieoYeo
+      , ieotYeot
       , iraRa
       , aYa
       , iyuYu
@@ -20,19 +21,20 @@ const put = (josa1, josa2, f) => {
 
 // string -> string
 // Appends an appropriate josa to the given word.
-const appendEunNeun     = w => w + eunNeun(w)
-const appendIGa         = w => w + iGa(w)
-const appendEulLeul     = w => w + eulLeul(w)
-const appendGwaWa       = w => w + gwaWa(w)
-const appendIrangRang   = w => w + irangRang(w)
-const appendInaNa       = w => w + inaNa(w)
-const appendEuroRo      = w => w + euroRo(w)
-const appendIeyoYeyo    = w => w + ieyoYeyo(w)
-const appendIyeotYeot   = w => w + iyeotYeot(w)
-const appendIraRa       = w => w + iraRa(w)
-const appendIyuYu       = w => w + iyuYu(w)
-const appendAYa         = w => w + aYa(w)
-const appendIsiyuSiyu   = w => w + isiyuSiyu(w)
+const appendEunNeun   = w => w + eunNeun(w)
+const appendIGa       = w => w + iGa(w)
+const appendEulLeul   = w => w + eulLeul(w)
+const appendGwaWa     = w => w + gwaWa(w)
+const appendIrangRang = w => w + irangRang(w)
+const appendInaNa     = w => w + inaNa(w)
+const appendEuroRo    = w => w + euroRo(w)
+const appendIeyoYeyo  = w => w + ieyoYeyo(w)
+const appendIeoYeo    = w => w + ieoYeo(w)
+const appendIeotYeot  = w => w + ieotYeot(w)
+const appendIraRa     = w => w + iraRa(w)
+const appendIyuYu     = w => w + iyuYu(w)
+const appendAYa       = w => w + aYa(w)
+const appendIsiyuSiyu = w => w + isiyuSiyu(w)
 
 put('은', '는', appendEunNeun)
 put('이', '가', appendIGa)
@@ -42,11 +44,12 @@ put('이랑', '랑', appendIrangRang)
 put('이나', '나', appendInaNa)
 put('으로', '로', appendEuroRo)
 put('이에요', '예요', appendIeyoYeyo)
-put('이었', '였', appendIyeotYeot)
+put('이어', '여', appendIeoYeo)
+put('이었', '였', appendIeotYeot)
 put('이라', '라', appendIraRa)
-put('아', '야', appendAYa)
-put('이여', '여', appendIyuYu)
-put('이시여', '시여', appendIsiyuSiyu)
+put('-아', '-야', appendAYa)
+put('-이여', '-여', appendIyuYu)
+put('-이시여', '-시여', appendIsiyuSiyu)
 
 module.exports = { appendEunNeun
                  , appendIGa
@@ -56,7 +59,7 @@ module.exports = { appendEunNeun
                  , appendInaNa
                  , appendEuroRo
                  , appendIeyoYeyo
-                 , appendIyeotYeot
+                 , appendIeotYeot
                  , appendIraRa
                  , appendAYa
                  , appendIyuYu

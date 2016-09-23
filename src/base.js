@@ -15,7 +15,8 @@ const gwaWa     = josaPicker('과', '와')
 const irangRang = josaPicker('이랑', '랑')
 const inaNa     = josaPicker('이나', '나')
 const ieyoYeyo  = josaPicker('이에요', '예요')
-const iyeotYeot = josaPicker('이었', '였')
+const ieotYeot  = josaPicker('이었', '였')
+const ieoYeo    = josaPicker('이어', '여')
 const iraRa     = josaPicker('이라', '라')
 const aYa       = josaPicker('아', '야')
 const iyuYu     = josaPicker('이여', '여')
@@ -34,7 +35,8 @@ module.exports = { josaPicker
                  , inaNa
                  , euroRo
                  , ieyoYeyo
-                 , iyeotYeot
+                 , ieotYeot
+                 , ieoYeo
                  , iraRa
                  , aYa
                  , iyuYu

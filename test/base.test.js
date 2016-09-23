@@ -14,7 +14,7 @@ const { josaPicker
       , aYa
       , iyuYu
       , isiyuSiyu
-      } = require('../base')
+      } = require('../src/base')
 
 describe('#Base Functions', () => {
   describe('josaPicker()', () => {

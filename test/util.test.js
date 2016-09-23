@@ -2,7 +2,7 @@ const { assert } = require('chai')
 
 const { tail
       , hasTail
-      } = require('../tail')
+      } = require('../src/tail')
 
 describe('#Tail Consonant Functions', () => {
   describe('tail()', () => {

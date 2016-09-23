@@ -1,0 +1,1 @@
+window.josa = require('./fillInJosa')

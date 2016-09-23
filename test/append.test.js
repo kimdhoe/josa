@@ -10,7 +10,7 @@ const { appendEunNeun
       , appendEuroRo
       , appendIeyoYeyo
       , appendIragoRago
-      } = require('../append')
+      } = require('../src/append')
 
 describe('appendEunNeun', () => {
   it('appends 은/는 to the given word', () => {

@@ -1,6 +1,6 @@
 const { assert } = require('chai')
 
-const fillInJosa = require('../fillInJosa')
+const fillInJosa = require('../src/fillInJosa')
 
 describe('fillInJosa()', () => {
   it('replaces the placeholders with appropriate josas.', () => {

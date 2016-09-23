@@ -3,10 +3,10 @@ const { eunNeun, iGa
       , gwaWa
       , irangRang
       , inaNa
-      , iraseoRaseo
       , euroRo
       , ieyoYeyo
-      , iragoRago
+      , iyeotYeot
+      , iraRa
       , aYa
       , iyuYu
       , isiyuSiyu
@@ -26,10 +26,10 @@ const appendEulLeul     = w => w + eulLeul(w)
 const appendGwaWa       = w => w + gwaWa(w)
 const appendIrangRang   = w => w + irangRang(w)
 const appendInaNa       = w => w + inaNa(w)
-const appendIraseoRaseo = w => w + iraseoRaseo(w)
 const appendEuroRo      = w => w + euroRo(w)
 const appendIeyoYeyo    = w => w + ieyoYeyo(w)
-const appendIragoRago   = w => w + iragoRago(w)
+const appendIyeotYeot   = w => w + iyeotYeot(w)
+const appendIraRa       = w => w + iraRa(w)
 const appendIyuYu       = w => w + iyuYu(w)
 const appendAYa         = w => w + aYa(w)
 const appendIsiyuSiyu   = w => w + isiyuSiyu(w)
@@ -40,10 +40,10 @@ put('을', '를', appendEulLeul)
 put('과', '와', appendGwaWa)
 put('이랑', '랑', appendIrangRang)
 put('이나', '나', appendInaNa)
-put('이라서', '라서', appendIraseoRaseo)
 put('으로', '로', appendEuroRo)
 put('이에요', '예요', appendIeyoYeyo)
-put('이라고', '라고', appendIragoRago)
+put('이었', '였', appendIyeotYeot)
+put('이라', '라', appendIraRa)
 put('아', '야', appendAYa)
 put('이여', '여', appendIyuYu)
 put('이시여', '시여', appendIsiyuSiyu)
@@ -54,10 +54,10 @@ module.exports = { appendEunNeun
                  , appendGwaWa
                  , appendIrangRang
                  , appendInaNa
-                 , appendIraseoRaseo
                  , appendEuroRo
                  , appendIeyoYeyo
-                 , appendIragoRago
+                 , appendIyeotYeot
+                 , appendIraRa
                  , appendAYa
                  , appendIyuYu
                  , appendFnTable

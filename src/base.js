@@ -8,18 +8,18 @@ const josaPicker = (josa1, josa2) => w =>
 
 // string -> string
 // Given a word, determines appropriate josa.
-const eunNeun     = josaPicker('은', '는')
-const iGa         = josaPicker('이', '가')
-const eulLeul     = josaPicker('을', '를')
-const gwaWa       = josaPicker('과', '와')
-const irangRang   = josaPicker('이랑', '랑')
-const inaNa       = josaPicker('이나', '나')
-const iraseoRaseo = josaPicker('이라서', '라서')
-const ieyoYeyo    = josaPicker('이에요', '예요')
-const iragoRago   = josaPicker('이라고', '라고')
-const aYa         = josaPicker('아', '야')
-const iyuYu       = josaPicker('이여', '여')
-const isiyuSiyu   = josaPicker('이시여', '시여')
+const eunNeun   = josaPicker('은', '는')
+const iGa       = josaPicker('이', '가')
+const eulLeul   = josaPicker('을', '를')
+const gwaWa     = josaPicker('과', '와')
+const irangRang = josaPicker('이랑', '랑')
+const inaNa     = josaPicker('이나', '나')
+const ieyoYeyo  = josaPicker('이에요', '예요')
+const iyeotYeot = josaPicker('이었', '였')
+const iraRa     = josaPicker('이라', '라')
+const aYa       = josaPicker('아', '야')
+const iyuYu     = josaPicker('이여', '여')
+const isiyuSiyu = josaPicker('이시여', '시여')
 // exeptional case: 저기로, 회의실로, 방으로
 // When the tail consonant is ㄹ, '로' is chosen, not '으로'.
 const euroRo = w =>
@@ -32,10 +32,10 @@ module.exports = { josaPicker
                  , gwaWa
                  , irangRang
                  , inaNa
-                 , iraseoRaseo
                  , euroRo
                  , ieyoYeyo
-                 , iragoRago
+                 , iyeotYeot
+                 , iraRa
                  , aYa
                  , iyuYu
                  , isiyuSiyu

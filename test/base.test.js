@@ -7,10 +7,10 @@ const { josaPicker
       , gwaWa
       , irangRang
       , inaNa
-      , iraseoRaseo
       , euroRo
       , ieyoYeyo
-      , iragoRago
+      , iyeotYeot
+      , iraRa
       , aYa
       , iyuYu
       , isiyuSiyu
@@ -69,13 +69,6 @@ describe('#Base Functions', () => {
       })
     })
 
-    describe('iraseoRaseo()', () => {
-      it('produces 이라서 or 라서, depending on the given word.', () => {
-        assert.equal(iraseoRaseo('선생님'), '이라서')
-        assert.equal(iraseoRaseo('친구'), '라서')
-      })
-    })
-
     describe('euroRo()', () => {
       it('produces 으로 or 로, depending on the given word.', () => {
         assert.equal(euroRo('선생님'), '으로')
@@ -96,10 +89,17 @@ describe('#Base Functions', () => {
       })
     })
 
-    describe('iragoRago()', () => {
-      it('produces 이라고 or 라고, depending on the given word.', () => {
-        assert.equal(iragoRago('선생님'), '이라고')
-        assert.equal(iragoRago('친구'), '라고')
+    describe('iyeotYeot()', () => {
+      it('produces 이었 or 였, depending on the given word.', () => {
+        assert.equal(iyeotYeot('선생님'), '이었')
+        assert.equal(iyeotYeot('친구'), '였')
+      })
+    })
+
+    describe('iraRa()', () => {
+      it('produces 이라 or 라, depending on the given word.', () => {
+        assert.equal(iraRa('선생님'), '이라')
+        assert.equal(iraRa('친구'), '라')
       })
     })
 

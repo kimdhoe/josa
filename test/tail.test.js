@@ -11,9 +11,14 @@ describe('#Tail Consonant Functions', () => {
       assert.equal(tail('골'),  8)
       assert.equal(tail('곻'), 27)
     })
+    it('can handle digits.', () => {
+      assert.equal(tail('337'),  8)
+      assert.equal(tail('125'),  0)
+      assert.equal(tail('100'), 21)
+    })
     it('ignores text inside parentheses.', () => {
-      assert.equal(tail('고(골 골)'), '0')
-      assert.equal(tail('골(고 고)'), '8')
+      assert.equal(tail('고(골)'), '0')
+      assert.equal(tail('골(고)'), '8')
       assert.equal(tail('둘리(아기 공룡)'), '0')
     })
   })
@@ -23,8 +28,6 @@ describe('#Tail Consonant Functions', () => {
       assert.equal(hasTail('나가'), false)
       assert.equal(hasTail('나각'), true)
       assert.equal(hasTail('나갛'), true)
-    })
-    it('can handle digits.', () => {
       assert.isFalse(hasTail('335'))
       assert.isTrue(hasTail('123'))
       assert.isTrue(hasTail('100'))

@@ -12,15 +12,12 @@ const eunNeun   = josaPicker('은', '는')
 const iGa       = josaPicker('이', '가')
 const eulLeul   = josaPicker('을', '를')
 const gwaWa     = josaPicker('과', '와')
-const irangRang = josaPicker('이랑', '랑')
-const inaNa     = josaPicker('이나', '나')
-const ieyoYeyo  = josaPicker('이에요', '예요')
 const ieotYeot  = josaPicker('이었', '였')
 const ieoYeo    = josaPicker('이어', '여')
-const iraRa     = josaPicker('이라', '라')
+const ieyoYeyo  = josaPicker('이에요', '예요')
 const aYa       = josaPicker('아', '야')
-const iyuYu     = josaPicker('이여', '여')
-const isiyuSiyu = josaPicker('이시여', '시여')
+const i = josaPicker('이', '')
+
 // exeptional case: 저기로, 회의실로, 방으로
 // When the tail consonant is ㄹ, '로' is chosen, not '으로'.
 const euroRo = w =>
@@ -31,14 +28,10 @@ module.exports = { josaPicker
                  , iGa
                  , eulLeul
                  , gwaWa
-                 , irangRang
-                 , inaNa
-                 , euroRo
-                 , ieyoYeyo
                  , ieotYeot
                  , ieoYeo
-                 , iraRa
+                 , ieyoYeyo
                  , aYa
-                 , iyuYu
-                 , isiyuSiyu
+                 , euroRo
+                 , i
                  }

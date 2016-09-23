@@ -1,3 +1,1 @@
-const fillInJosa = require('./fillInJosa')
-
-module.exports = fillInJosa
+module.exports = require('./fillInJosa')

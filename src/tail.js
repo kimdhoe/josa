@@ -27,7 +27,7 @@ const tail = w0 => {
 
 // string -> boolean
 // Does the last character of a given word have a tail consonant?
-const hasTail= w =>
+const hasTail = w =>
   tail(w) !== 0
 
 module.exports = { tail

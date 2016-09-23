@@ -1,6 +1,6 @@
 {
   "name": "josa",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Handles josa selection for dynamically generated strings",
   "repository": {
     "type": "git",
@@ -15,7 +15,9 @@
     "test": "mocha"
   },
   "files": [
-    "dist"
+    "src",
+    "dist",
+    "README.md"
   ],
   "keywords": [
     "한글",

@@ -1,0 +1,116 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@3.10.5
+3 info using node@v6.2.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/KimDH/github/josa',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/KimDH/.npm/josa/1.0.1/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/KimDH/.npm correctMkdir not in flight; initializing
+10 info lifecycle josa@1.0.1~prepublish: josa@1.0.1
+11 silly lifecycle josa@1.0.1~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/KimDH/.npm/josa/1.0.1/package.tgz',
+12 verbose tar pack   '/Users/KimDH/github/josa' ]
+13 verbose tarball /Users/KimDH/.npm/josa/1.0.1/package.tgz
+14 verbose folder /Users/KimDH/github/josa
+15 verbose addLocalTarball adding from inside cache /Users/KimDH/.npm/josa/1.0.1/package.tgz
+16 verbose correctMkdir /Users/KimDH/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd josa@1.0.1
+18 verbose afterAdd /Users/KimDH/.npm/josa/1.0.1/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/KimDH/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/KimDH/.npm/josa/1.0.1/package/package.json written
+21 silly publish { name: 'josa',
+21 silly publish   version: '1.0.1',
+21 silly publish   description: 'Handles josa selection for dynamically generated strings',
+21 silly publish   repository: { type: 'git', url: 'git+https://github.com/kimdhoe/josa.git' },
+21 silly publish   bugs: { url: 'https://github.com/kimdhoe/josa/issues' },
+21 silly publish   main: 'src/index.js',
+21 silly publish   scripts:
+21 silly publish    { 'build:browser': 'browserify src/indexBrowser.js -t [ babelify --presets [ es2015 stage-1 ] ] | uglifyjs > dist/josa.min.js',
+21 silly publish      test: 'mocha' },
+21 silly publish   files: [ 'src', 'dist', 'README.md' ],
+21 silly publish   keywords: [ '한글', '문법', '조사', 'Korean', 'Hangul', 'josa' ],
+21 silly publish   author: { name: 'kimdhoe', email: 'kimdhoe1@gmail.com' },
+21 silly publish   license: 'ISC',
+21 silly publish   devDependencies:
+21 silly publish    { 'babel-preset-es2015': '^6.14.0',
+21 silly publish      'babel-preset-stage-1': '^6.13.0',
+21 silly publish      babelify: '^7.3.0',
+21 silly publish      browserify: '^13.1.0',
+21 silly publish      chai: '^3.5.0',
+21 silly publish      mocha: '^3.0.2',
+21 silly publish      'uglify-js': '^2.7.3' },
+21 silly publish   readme: '# Josa\n\nJosa는 선행명사의 형태에 따라 적절한 조사를 찾아줍니다.\n\n## 설치\n\n```shell\nnpm install josa\n```\n\n## 사용법\n\nJosa는 기본적으로 주 함수 하나만을 노출하고 있습니다. 이 함수는 입력받은 문자열에 포함된 플레이스홀더를 적절한 조사로 대체합니다.\n\n``` javascript\nimport josa from \'josa\'\n\njosa(\'친구#{이} 선생님#{와} 함께 학교#{으로} 간다.\')\n// => \'친구가 선생님과 함께 학교로 간다.\'\n\nconst book = getBookFromSomewhere()\n\njosa(`${book.title}#{는} ${book.author}#{이} 쓴 책이고, ISBN은 ${book.isbn}#{예요}.`)\n// => \'자연의 이야기들은 쥘 르나르가 썼고, ISBN은 xxxxxxxxxxxx3이에요.\'\n\njosa(\'숫자#{이} 3#{가} 되었다.\')\n// => \'숫자가 3이 되었다.\'\n\njosa(\'값#{가} 7#{으로} 바뀐다.\')\n// => \'값이 7로 바뀐다.\'\n```\n\n`/dist/josa.min.js` 파일은 빌드 과정 없이 바로 브라우저에서 사용하는 용도로 포함되었습니다.\n\n```html\n<script src="path/to/josa.min.js"></script>\n<script>\n    alert( josa(\'커피#{을}\') )\n</script>\n```\n\n## 특징\n\n- 바로 앞의 명사에 따라 플레이스홀더가 적절한 조사로 바뀌거나 없어집니다.\n  - `커피#{은} ==> 커피는`\n  - `커피#{는} ==> 커피는`\n  - `커피#{이?}다 ==> 커피다`\n\n- 플레이스홀더는 해시(`#`) 기호가 붙은 중괄호로 표기하며, 선행명사와 플레이스홀더 사이에 공백이 없어야 합니다.\n\n- 선행명사가 한글이나 숫자로 끝나는 경우를 지원합니다.\n\n- 플레이스홀더 앞에 소괄호(`(`, `)`)로 묶인 글이 올 때 조사의 형태는 괄호 앞의 단어에 따릅니다.\n  - `둘리(아기 공룡)#{은} ==> 둘리(아기 공룡)는`\n\n## 플레이스홀더\n\n### 은/는 (`#{은}`/`#{는}`)\n\n```javascript\njosa(\'호랑이#{은} 사슴#{는}\')\n// => \'호랑이는 사슴은\'\n\njosa(\'호랑이#{은}커녕 사슴#{는}커녕\')\n// => \'호랑이는커녕 사슴은커녕\'\n```\n\n### 이/가 (`#{이}`/`#{가}`)\n\n```javascript\njosa(\'호랑이{이} 사슴#{가}\')\n// => \'호랑이가 사슴이\'\n```\n\n### 을/를 (`#{을}`/`#{를}`)\n\n```javascript\njosa(\'호랑이#{을} 사슴#{를}\')\n// => \'호랑이를 사슴을\'\n```\n\n### 와/과 (`#{와}`/`#{과}`)\n\n```javascript\njosa(\'호랑이#{과} 사슴#{와} 너구리\')\n// => \'호랑이와 사슴과 너구리\'\n```\n\n### 이어/여 (`#{이어}`/`#{여}`)\n\n```javascript\njosa(\'호랑이#{이어}서 사슴#{여}서\')\n// => \'호랑이여서 사슴이어서\'\n```\n\n### 으로/로 (`#{으로}`/`#{로}`)\n\n```javascript\njosa(\'여기#{으로}부터 집#{로} 희의실#{으로}\')\n// => \'여기로부터 집으로 회의실로\'\n```\n\n### 이에요/예요 (`#{이에요}`/`#{예요}`)\n\n```javascript\njosa(\'#여우{이에요} 사슴#{예요}\')\n// => \'여우예요 사슴이에요\'\n```\n\n### 이었/였 (`#{이었}`/`#{였}`)\n\n```javascript\njosa(\'호랑이#{이었}는데 사슴#{였}나\')\n// => \'호랑이였는데 사슴이었나\'\n```\n\n### 아/야 (`#{아}`/`#{야}`)\n\n```javascript\njosa(\'두꺼비#{아} 밝은 달#{야}\')\n// => \'두꺼비야 밝은 달아\'\n```\n\n### 이/- (`#{이?}`)\n\n여러 상황에서 쓰일 수 있는 플레이스홀더로, `이` 혹은 빈 문자열로 바뀝니다.\n\n```javascript\njosa(\'개#{이?}라고 사슴#{이?}라는데\')\n// => \'개라고 사슴이라는데\'\n\njosa(\'개#{이?}고 사슴#{이?}다\')\n// => \'개고 사슴이다\'\n\njosa(\'개#{이?}요 사슴#{이?}요\')\n// => \'개요 사슴이요\'\n\njosa(\'개#{이?}나 사슴#{이?}나\')\n// => \'개나 사슴이나\'\n\njosa(\'개#{이?}든 사슴#{이?}든\')\n// => \'개든 사슴이든\'\n\njosa(\'개#{이?}랑 사슴#{이?}랑\')\n// => \'개랑 사슴이랑\'\n\njosa(\'개#{이?}란 사슴#{이?}란\')\n// => \'개란 사슴이란\'\n\njosa(\'개#{이?}나마 사슴#{이?}나마\')\n// => \'개나마 사슴이나마\'\n\njosa(\'개#{이?}야말로 사슴#{이?}야말로\')\n// => \'개야말로 사슴이야말로\'\n\njosa(\'하늘#{이?}시여 부처#{이?}시여\')\n// => \'하늘이시여 부처시여\'\n\njosa(\'왕#{이?}여 나그네#{이?}여\')\n// => \'왕이여 나그네여\'\n```\n\n```javascript\njosa(\'\')\n// =>\n```\n\n## 테스트\n\n```shell\nnpm install\n\nnpm test\n```\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: 'a0aaa25883566f7af9a5a743c436808f687ae6a6',
+21 silly publish   homepage: 'https://github.com/kimdhoe/josa#readme',
+21 silly publish   _id: 'josa@1.0.1',
+21 silly publish   _shasum: '257ad4ab2c4748a85cc572dcb6892a1c0927d8a2',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name josa
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'josa',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'josa',
+26 silly mapToRegistry   name: 'josa',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/josa
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/KimDH/.npm/josa/1.0.1/package.tgz
+30 verbose request uri https://registry.npmjs.org/josa
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 6:46:58 PM
+33 verbose request using bearer token for auth
+34 verbose request id 079ae17c9d568f98
+35 http request PUT https://registry.npmjs.org/josa
+36 http 403 https://registry.npmjs.org/josa
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '95',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Fri, 23 Sep 2016 09:46:59 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-hkg6821-HKG',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1474624018.831119,VS0,VE1058',
+37 verbose headers   vary: 'Accept-Encoding' }
+38 verbose request invalidating /Users/KimDH/.npm/registry.npmjs.org/josa on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: "You cannot publish over the previously published version 1.0.1." : josa
+40 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+40 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+40 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:200:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+40 verbose stack     at emitOne (events.js:101:20)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:988:12)
+41 verbose statusCode 403
+42 verbose pkgid josa
+43 verbose cwd /Users/KimDH/github/josa
+44 error Darwin 15.6.0
+45 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+46 error node v6.2.0
+47 error npm  v3.10.5
+48 error code E403
+49 error "You cannot publish over the previously published version 1.0.1." : josa
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]

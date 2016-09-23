@@ -1,5 +1,4 @@
-const { eunNeun
-      , iGa
+const { eunNeun, iGa
       , eulLeul
       , gwaWa
       , irangRang
@@ -8,7 +7,16 @@ const { eunNeun
       , euroRo
       , ieyoYeyo
       , iragoRago
+      , aYa
+      , iyuYu
+      , isiyuSiyu
       } = require('./base')
+
+const appendFnTable = {}
+
+const put = (josa1, josa2, f) => {
+  appendFnTable[josa1] = appendFnTable[josa2] = f
+}
 
 // string -> string
 // Appends an appropriate josa to the given word.
@@ -22,28 +30,23 @@ const appendIraseoRaseo = w => w + iraseoRaseo(w)
 const appendEuroRo      = w => w + euroRo(w)
 const appendIeyoYeyo    = w => w + ieyoYeyo(w)
 const appendIragoRago   = w => w + iragoRago(w)
+const appendIyuYu       = w => w + iyuYu(w)
+const appendAYa         = w => w + aYa(w)
+const appendIsiyuSiyu   = w => w + isiyuSiyu(w)
 
-const appendFnTable = { '은': appendEunNeun
-                      , '는': appendEunNeun
-                      , '이': appendIGa
-                      , '가': appendIGa
-                      , '을': appendEulLeul
-                      , '를': appendEulLeul
-                      , '과': appendGwaWa
-                      , '와': appendGwaWa
-                      , '이랑': appendIrangRang
-                      , '랑': appendIrangRang
-                      , '이나': appendInaNa
-                      , '나': appendInaNa
-                      , '이라서': appendIraseoRaseo
-                      , '라서': appendIraseoRaseo
-                      , '으로': appendEuroRo
-                      , '로': appendEuroRo
-                      , '이에요': appendIeyoYeyo
-                      , '예요': appendIeyoYeyo
-                      , '이라고': appendIragoRago
-                      , '라고': appendIragoRago
-                      }
+put('은', '는', appendEunNeun)
+put('이', '가', appendIGa)
+put('을', '를', appendEulLeul)
+put('과', '와', appendGwaWa)
+put('이랑', '랑', appendIrangRang)
+put('이나', '나', appendInaNa)
+put('이라서', '라서', appendIraseoRaseo)
+put('으로', '로', appendEuroRo)
+put('이에요', '예요', appendIeyoYeyo)
+put('이라고', '라고', appendIragoRago)
+put('아', '야', appendAYa)
+put('이여', '여', appendIyuYu)
+put('이시여', '시여', appendIsiyuSiyu)
 
 module.exports = { appendEunNeun
                  , appendIGa
@@ -55,5 +58,7 @@ module.exports = { appendEunNeun
                  , appendEuroRo
                  , appendIeyoYeyo
                  , appendIragoRago
+                 , appendAYa
+                 , appendIyuYu
                  , appendFnTable
                  }

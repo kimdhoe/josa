@@ -1,12 +1,12 @@
 {
   "name": "josa",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Handles josa selection for dynamically generated strings",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
-  "keywords": [],
+  "keywords": ["한글", "문법", "조사", "Korean", "Hangul", "josa"],
   "author": "kimdhoe <kimdhoe1@gmail.com>",
   "license": "ISC",
   "devDependencies": {

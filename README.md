@@ -10,11 +10,19 @@ npm install josa
 
 ## 사용법
 
-Josa는 기본적으로 주 함수 하나만을 노출하고 있습니다. 이 함수는 입력받은 문자열에 포함된 플레이스홀더를 적절한 조사로 대체합니다.
+Josa는 기본적으로 주 함수 하나만을 노출하고 있습니다.
 
 ``` javascript
+// ES2015 module
 import josa from 'josa'
 
+// CommonJS
+const josa = require('josa').default
+```
+
+이 함수는 입력받은 문자열에 포함된 플레이스홀더를 적절한 조사로 대체합니다.
+
+``` javascript
 josa('친구#{이} 선생님#{와} 함께 학교#{으로} 간다.')
 // => '친구가 선생님과 함께 학교로 간다.'
 

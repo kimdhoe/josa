@@ -1,6 +1,6 @@
 {
   "name": "josa",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Handles josa selection for dynamically generated strings",
   "repository": {
     "type": "git",
@@ -21,10 +21,12 @@
   ],
   "keywords": [
     "한글",
+    "한국어",
     "문법",
     "조사",
     "Korean",
     "Hangul",
+    "grammar",
     "josa"
   ],
   "author": "kimdhoe <kimdhoe1@gmail.com>",

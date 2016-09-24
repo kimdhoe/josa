@@ -28,11 +28,6 @@ const { tail, hasTail } = require('./tail')
 // State. Manages the josa-pickers.
 const table = {}
 
-// makeJosaPicker : Josa * Josa -> JosaPicker
-// Given two josa options, produces a josa-picker.
-const makeJosaPicker = (josa1, josa2) => w =>
-  hasTail(w) ? josa1.replace(/\?$/, '') : josa2
-
 // put : Josa * Josa * JosaPicker -> void
 // Effect. Puts f into table with two given names josa1 and josa2.
 const put = (josa1, josa2, f) => {
@@ -53,6 +48,11 @@ const get = josa => {
 
   return f
 }
+
+// makeJosaPicker : Josa * Josa -> JosaPicker
+// Given two josa options, produces a josa-picker.
+const makeJosaPicker = (josa1, josa2) => w =>
+  hasTail(w) ? josa1.replace(/\?$/, '') : josa2
 
 // install : Josa * Josa * JosaPicker? -> void
 //   - josa1 is for a word with a tail consonant.

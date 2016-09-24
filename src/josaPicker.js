@@ -34,7 +34,9 @@ const josaPicker = (josa1, josa2) => w =>
 
 // Josa * Josa * JosaPicker? -> void
 // Effect. Puts a josa-picker created from josa1 and josa2 into table.
-// g is optional josa-picker for an exceptional case: '으로'
+//   - josa1 is for a word with a tail consonant.
+//   - josa2 is for a word with no tail consonant.
+//   - g is optional josa-picker for an exceptional case: '으로'
 const put = (josa1, josa2, g) => {
   const f = g || josaPicker(josa1, josa2)
 
@@ -45,7 +47,8 @@ const put = (josa1, josa2, g) => {
 }
 
 // Josa -> JosaPicker
-// Effect. Given a josa, gets a josa-picker from table.
+// Given a josa, returns a josa-picker.
+// Effect. Searches table for a josa-picker with name josa.
 const get = josa => {
   const josaPicker = table[josa]
 

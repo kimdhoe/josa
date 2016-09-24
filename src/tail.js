@@ -80,7 +80,7 @@ const tail = word0 => {
       return tailEnglishInitial(w[w.length - 2])
 
     return go(w.slice(0, w.length - 1))
-    }
+  }
 
   return go(word0)
 }

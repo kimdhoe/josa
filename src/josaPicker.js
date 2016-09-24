@@ -58,7 +58,7 @@ const makeJosaPicker = (josa1, josa2) => w =>
 //   - josa1 is for a word with a tail consonant.
 //   - josa2 is for a word with no tail consonant.
 //   - g is optional josa-picker for an exceptional case: '으로'
-// Effect. Puts a josa-picker created from josa1 and josa2 into table.
+// Effect. Sets up a josa-picker that chooses between josa1 and josa2.
 const install = (josa1, josa2, g) => {
   const f = g || makeJosaPicker(josa1, josa2)
 

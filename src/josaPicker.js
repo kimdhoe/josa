@@ -24,19 +24,20 @@ const { tail, hasTail } = require('./tail')
 // A JosaPicker is a fuction: string -> Josa
 //   - Determines josa for a given string.
 
+// table : object
 // State. Manages the josa-pickers.
 const table = {}
 
-// Josa * Josa -> JosaPicker
+// josaPicker : Josa * Josa -> JosaPicker
 // Given two josa options, produces a josa-picker.
 const josaPicker = (josa1, josa2) => w =>
   hasTail(w) ? josa1.replace(/\?$/, '') : josa2
 
-// Josa * Josa * JosaPicker? -> void
-// Effect. Puts a josa-picker created from josa1 and josa2 into table.
+// put : Josa * Josa * JosaPicker? -> void
 //   - josa1 is for a word with a tail consonant.
 //   - josa2 is for a word with no tail consonant.
 //   - g is optional josa-picker for an exceptional case: '으로'
+// Effect. Puts a josa-picker created from josa1 and josa2 into table.
 const put = (josa1, josa2, g) => {
   const f = g || josaPicker(josa1, josa2)
 
@@ -46,7 +47,7 @@ const put = (josa1, josa2, g) => {
     table[josa2] = f
 }
 
-// Josa -> JosaPicker
+// get : Josa -> JosaPicker
 // Given a josa, returns a josa-picker.
 // Effect. Searches table for a josa-picker with name josa.
 const get = josa => {

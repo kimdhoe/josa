@@ -1,10 +1,10 @@
-// string -> number
+// tailHangul : string -> number
 // Produces the tail consonant value of c.
 // Assume c is a one-letter Hangul string.
 const tailHangul = c =>
   (c.charCodeAt(0) - 44032) % 28
 
-// string -> number
+// tailDigit : string -> number
 // Produces the tail consonant value of d.
 // Assume d is a one-letter digit.
 const tailDigit = d => {
@@ -22,7 +22,7 @@ const tailDigit = d => {
   }
 }
 
-// string -> number
+// tailEnglish : string -> number
 // Produces the tail consonant value of cc.
 // Assume cc is a two-letter English string.
 const tailEnglish = cc =>
@@ -36,7 +36,7 @@ const tailEnglish = cc =>
   /ng/i.test(cc) ? 21 :
   /* else */        0
 
-// string -> number
+// tailEnglishInitial : string -> number
 // Produces the tail consonant value of c.
 // Assume c is a single-letter English string.
 const tailEnglishInitial = c => {
@@ -49,7 +49,7 @@ const tailEnglishInitial = c => {
   }
 }
 
-// string -> number
+// tail : string -> number
 // Produces the tail consonant value of the last character (if possible).
 // The return value 0 means no tail consonant.
 //   - http://gernot-katzers-spice-pages.com/var/korean_hangul_unicode.html
@@ -79,7 +79,7 @@ const tail = w0 => {
   return tail(w.slice(0, w.length - 1))
 }
 
-// string -> boolean
+// hasTail : string -> boolean
 // Does a given word end with a tail consonant?
 const hasTail = w =>
   tail(w) !== 0

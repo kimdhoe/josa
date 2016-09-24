@@ -1,6 +1,6 @@
 const { get } = require('./josaPicker')
 
-// string -> string
+// fillInJosa : string -> string
 // Fills in the josa placeholders: 친구#{이} 학교#{으로} -> 친구가 학교로
 const fillInJosa = str =>
              /*  +++(___ ____ ____)#{---------} */

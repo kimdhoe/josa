@@ -21,7 +21,7 @@ josa('친구#{이} 선생님#{와} 함께 학교#{으로} 간다.')
 const book = getBookFromSomewhere()
 
 josa(`${book.title}#{는} ${book.author}#{이} 쓴 책이고, ISBN은 ${book.isbn}#{예요}.`)
-// => '자연의 이야기들은 쥘 르나르가 썼고, ISBN은 xxxxxxxxxxxx3이에요.'
+// => '자연의 이야기들은 쥘 르나르가 쓴 책이고, ISBN은 xxxxxxxxxxxx3이에요.'
 
 josa('숫자#{이} 3#{가} 되었다.')
 // => '숫자가 3이 되었다.'
@@ -73,7 +73,7 @@ josa('호랑이#{은}커녕 사슴#{는}커녕')
 ### 이/가 ( `#{이}` / `#{가}` )
 
 ```javascript
-josa('호랑이{이} 사슴#{가}')
+josa('호랑이#{이} 사슴#{가}')
 // => '호랑이가 사슴이'
 ```
 

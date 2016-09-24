@@ -1,12 +1,12 @@
 const { assert } = require('chai')
 
-const { josaPicker, get } = require('../src/josaPicker')
+const { makeJosaPicker, get } = require('../src/josaPicker')
 
 describe('#Base Functions', () => {
-  describe('josaPicker()', () => {
+  describe('makeJosaPicker()', () => {
     it('produces a function that determines a josa for a given word.', () => {
-      assert.equal(josaPicker('받침O', '받침X')('강'), '받침O')
-      assert.equal(josaPicker('받침O', '받침X')('가'), '받침X')
+      assert.equal(makeJosaPicker('받침O', '받침X')('강'), '받침O')
+      assert.equal(makeJosaPicker('받침O', '받침X')('가'), '받침X')
     })
   })
 
@@ -20,7 +20,7 @@ describe('#Base Functions', () => {
 
   describe('hmm', () => {
     it('initial', () => {
-      assert.equal(josaPicker('은', '는')('R.'), '은')
+      assert.equal(makeJosaPicker('은', '는')('R.'), '은')
     })
   })
 })

@@ -28,9 +28,9 @@ const { tail, hasTail } = require('./tail')
 // State. Manages the josa-pickers.
 const table = {}
 
-// josaPicker : Josa * Josa -> JosaPicker
+// makeJosaPicker : Josa * Josa -> JosaPicker
 // Given two josa options, produces a josa-picker.
-const josaPicker = (josa1, josa2) => w =>
+const makeJosaPicker = (josa1, josa2) => w =>
   hasTail(w) ? josa1.replace(/\?$/, '') : josa2
 
 // put : Josa * Josa * JosaPicker? -> void
@@ -39,7 +39,7 @@ const josaPicker = (josa1, josa2) => w =>
 //   - g is optional josa-picker for an exceptional case: '으로'
 // Effect. Puts a josa-picker created from josa1 and josa2 into table.
 const put = (josa1, josa2, g) => {
-  const f = g || josaPicker(josa1, josa2)
+  const f = g || makeJosaPicker(josa1, josa2)
 
   table[josa1] = f
 
@@ -68,8 +68,8 @@ put('이어', '여')
 put('이에요', '예요')
 put('아', '야')
 put('이?', '')
-put('으로', '로', w => tail(w) === 8 ? '로' : josaPicker('으로', '로')(w))
+put('으로', '로', w => tail(w) === 8 ? '로' : makeJosaPicker('으로', '로')(w))
 
-module.exports = { josaPicker
+module.exports = { makeJosaPicker
                  , get
                  }

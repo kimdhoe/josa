@@ -51,6 +51,11 @@ describe('#Tail Consonant Functions', () => {
   })
 
   describe('tail()', () => {
+    it('throws an error given an empty string.', () => {
+      assert.throws( () => tail('')
+                   , /There's no letter that can possibly have a tail consonant/
+                   )
+    })
     it('produces tail consonant value.', () => {
       assert.equal(tail('고'),  0)
       assert.equal(tail('골'),  8)

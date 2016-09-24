@@ -17,4 +17,10 @@ describe('#Base Functions', () => {
                    )
     })
   })
+
+  describe('hmm', () => {
+    it('initial', () => {
+      assert.equal(josaPicker('은', '는')('R.'), '은')
+    })
+  })
 })

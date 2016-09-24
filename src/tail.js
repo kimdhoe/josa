@@ -1,11 +1,11 @@
 // string -> number
-// Does c have a tail consonant?
+// Produces the tail consonant value of c.
 // Assume c is a one-letter Hangul string.
 const tailHangul = c =>
   (c.charCodeAt(0) - 44032) % 28
 
 // string -> number
-// Does d have a tail consonant?
+// Produces the tail consonant value of d.
 // Assume d is a one-letter digit.
 const tailDigit = d => {
   switch (d) {
@@ -23,7 +23,7 @@ const tailDigit = d => {
 }
 
 // string -> number
-// Does cc have a tail consonant?
+// Produces the tail consonant value of cc.
 // Assume cc is a two-letter English string.
 const tailEnglish = cc =>
   /.n/i.test(cc) ?  4 :
@@ -36,6 +36,9 @@ const tailEnglish = cc =>
   /ng/i.test(cc) ? 21 :
   /* else */        0
 
+// string -> number
+// Produces the tail consonant value of c.
+// Assume c is a single-letter English string.
 const tailEnglishInitial = c => {
   switch (c.toLowerCase()) {
     case 'l':
@@ -47,17 +50,16 @@ const tailEnglishInitial = c => {
 }
 
 // string -> number
-// Produces the value of tail consonant of the last character.
+// Produces the tail consonant value of the last character (if possible).
 // The return value 0 means no tail consonant.
 //   - http://gernot-katzers-spice-pages.com/var/korean_hangul_unicode.html
 const tail = w0 => {
+  if (!w0)
+    throw new Error("There's no letter that can possibly have a tail consonant")
+
   // Ignore text inside parentheses.
-  const w = w0.replace(/\([^)]*\)$/, '')
-
+  const w    = w0.replace(/\([^)]*\)$/, '')
   const last = w[w.length - 1]
-
-  if (!/[가-힣a-z0-9]/i.test(last))
-    return tail(w.slice(0, w.length - 1))
 
   if (/[가-힣]/.test(last))
     return tailHangul(last)
@@ -68,14 +70,17 @@ const tail = w0 => {
   if (/[a-z]{2}$/i.test(w))
     return tailEnglish(w.slice(w.length - 2, w.length))
 
-  if (/[a-z][^a-z]?$/i.test(w))
+  if (/(?:^|[^a-z])[a-z]$/i.test(w))
     return tailEnglishInitial(last)
 
-  return -1
+  if (/[a-z][^a-z]?$/i.test(w))
+    return tailEnglishInitial(w[w.length - 2])
+
+  return tail(w.slice(0, w.length - 1))
 }
 
 // string -> boolean
-// Does the last character of a given word have a tail consonant?
+// Does a given word end with a tail consonant?
 const hasTail = w =>
   tail(w) !== 0
 

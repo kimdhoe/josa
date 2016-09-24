@@ -4,9 +4,10 @@ const fillInJosa = require('../src/fillInJosa')
 
 describe('fillInJosa()', () => {
   it('replaces the placeholders with appropriate josas.', () => {
-    assert.equal( fillInJosa('2#{은} 7#{는} 선생님#{는} 친구#{은}')
-                , '2는 7은 선생님은 친구는'
-                )
+    assert.equal(
+      fillInJosa('선생님#{는} 친구#{은} 2#{은} 7#{는} 강(가)#{는} A#{은} R#{는} A.I.#{는} A.R.#{는}')
+    , '선생님은 친구는 2는 7은 강(가)은 A는 R은 A.I.는 A.R.은'
+    )
     assert.equal( fillInJosa('2#{이} 7#{가} 선생님#{가} 친구#{이}')
                 , '2가 7이 선생님이 친구가'
                 )

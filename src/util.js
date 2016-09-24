@@ -1,4 +1,4 @@
-const { get } = require('./josaPicker')
+import { get } from './josaPicker'
 
 // A Josaify is a function: string -> string
 //   - Produces a given word with a josa appended.
@@ -11,6 +11,6 @@ const makeJosaify = josa => word =>
 // getJosaPicker : Josa -> JosaPicker
 const getJosaPicker = get
 
-module.exports = { getJosaPicker
-                 , makeJosaify
-                 }
+export { getJosaPicker
+       , makeJosaify
+       }

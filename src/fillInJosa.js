@@ -1,4 +1,4 @@
-const { get } = require('./josaPicker')
+import { get } from './josaPicker'
 
 // fillInJosa : string -> string
 // Fills in the josa placeholders: 친구#{이} 학교#{으로} -> 친구가 학교로
@@ -8,4 +8,4 @@ const fillInJosa = str =>
              , (_, word, josa) => word + get(josa.trim())(word)
              )
 
-module.exports = fillInJosa
+export default fillInJosa

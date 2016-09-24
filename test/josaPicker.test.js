@@ -1,6 +1,8 @@
-const { assert } = require('chai')
+import { assert } from 'chai'
 
-const { makeJosaPicker, get } = require('../src/josaPicker')
+import { makeJosaPicker
+       , get
+       } from '../src/josaPicker'
 
 describe('#Base Functions', () => {
   describe('makeJosaPicker()', () => {

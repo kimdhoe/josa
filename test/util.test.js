@@ -1,6 +1,6 @@
-const { assert } = require('chai')
+import { assert } from 'chai'
 
-const { makeJosaify } = require('../src/util')
+import { makeJosaify } from '../src/util'
 
 describe('makeJosaify()', () => {
   it('produces a function that josaifies a given word.', () => {

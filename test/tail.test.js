@@ -1,12 +1,12 @@
-const { assert } = require('chai')
+import { assert } from 'chai'
 
-const { tailHangul
-      , tailDigit
-      , tailEnglish
-      , tailEnglishInitial
-      , tail
-      , hasTail
-      } = require('../src/tail')
+import { tailHangul
+       , tailDigit
+       , tailEnglish
+       , tailEnglishInitial
+       , tail
+       , hasTail
+       } from '../src/tail'
 
 describe('#Tail Consonant Functions', () => {
   describe('tailHangul()', () => {

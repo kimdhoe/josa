@@ -1,1 +1,3 @@
-window.josa = require('./fillInJosa')
+import fillInJosa from './fillInJosa'
+
+window.josa = fillInJosa

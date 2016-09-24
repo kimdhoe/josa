@@ -1,4 +1,4 @@
-const { tail, hasTail } = require('./tail')
+import { tail, hasTail } from './tail'
 
 // A Josa is one of:
 //   - 은
@@ -76,6 +76,6 @@ install('아', '야')
 install('이?', '')
 install('으로', '로', w => tail(w) === 8 ? '로' : makeJosaPicker('으로', '로')(w))
 
-module.exports = { makeJosaPicker
-                 , get
-                 }
+export { makeJosaPicker
+       , get
+       }

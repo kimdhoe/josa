@@ -90,10 +90,10 @@ const tail = word0 => {
 const hasTail = w =>
   tail(w) !== 0
 
-module.exports = { tailHangul
-                 , tailDigit
-                 , tailEnglish
-                 , tailEnglishInitial
-                 , tail
-                 , hasTail
-                 }
+export { tailHangul
+       , tailDigit
+       , tailEnglish
+       , tailEnglishInitial
+       , tail
+       , hasTail
+       }

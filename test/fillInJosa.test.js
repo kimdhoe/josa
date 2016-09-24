@@ -1,6 +1,6 @@
-const { assert } = require('chai')
+import { assert } from 'chai'
 
-const fillInJosa = require('../src/fillInJosa')
+import fillInJosa from '../src/fillInJosa'
 
 describe('fillInJosa()', () => {
   it('replaces the placeholders with appropriate josas.', () => {

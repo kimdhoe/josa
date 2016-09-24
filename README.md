@@ -10,6 +10,8 @@ npm install josa
 
 ## 사용법
 
+### Node.js
+
 Josa는 기본적으로 주 함수 하나만을 노출하고 있습니다.
 
 ``` javascript
@@ -37,6 +39,8 @@ josa('숫자#{이} 3#{가} 되었다.')
 josa('값#{가} 7#{으로} 바뀐다.')
 // => '값이 7로 바뀐다.'
 ```
+
+### 브라우저
 
 `/dist/josa.min.js` 파일은 빌드 과정 없이 바로 브라우저에서 사용하는 용도로 포함되었습니다.
 
@@ -171,6 +175,40 @@ josa('하늘#{이?}시여 부처#{이?}시여')
 
 josa('왕#{이?}여 나그네#{이?}여')
 // => '왕이여 나그네여'
+```
+
+## 기타
+
+주 함수 외에 이용할 수 있는 함수가 둘 있습니다.
+
+### `getJosaPicker`
+
+명사에 맞는 조사를 찾아주는 함수를 반환합니다.
+
+```javascript
+import getJosaPicker from 'josa/lib/util'
+// CommonJS:
+// const getJosaPicker = require('josa/lib/util').getJosaPicker
+
+const eulLeul = getJosaPicker('을')  // 혹은 getJosaPicker('를')
+
+eulLeul('치킨')  // => '을'
+eulLeul('콜라')  // => '를'
+```
+
+### `makeJosaify`
+
+명사에 조사를 붙이는 함수를 반환합니다.
+
+```javascript
+import makeJosaify from 'josa/lib/util'
+// CommonJS:
+// const makeJosaify = require('josa/lib/util').makeJosaify
+
+const eulLeulify = makeJosaify('을')  // 혹은 makeJosaify('를')
+
+eulLeulify('치킨')  // => '치킨을'
+eulLeulify('콜라')  // => '콜라를'
 ```
 
 ## 테스트

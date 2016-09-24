@@ -53,30 +53,36 @@ const tailEnglishInitial = c => {
 // Produces the tail consonant value of the last character (if possible).
 // The return value 0 means no tail consonant.
 //   - http://gernot-katzers-spice-pages.com/var/korean_hangul_unicode.html
-const tail = w0 => {
-  if (!w0)
-    throw new Error("There's no letter that can possibly have a tail consonant")
+const tail = word0 => {
+  const go = word => {
+    if (!word)
+      throw new Error(
+        "There's no letter that can possibly have a tail consonant: " + word0
+      )
 
-  // Ignore text inside parentheses.
-  const w    = w0.replace(/\([^)]*\)$/, '')
-  const last = w[w.length - 1]
+    // Ignore text inside parentheses.
+    const w    = word.replace(/\([^)]*\)$/, '')
+    const last = w[w.length - 1]
 
-  if (/[가-힣]/.test(last))
-    return tailHangul(last)
+    if (/[가-힣]/.test(last))
+      return tailHangul(last)
 
-  if (/\d/.test(last))
-    return tailDigit(last)
+    if (/\d/.test(last))
+      return tailDigit(last)
 
-  if (/[a-z]{2}$/i.test(w))
-    return tailEnglish(w.slice(w.length - 2, w.length))
+    if (/[a-z]{2}$/i.test(w))
+      return tailEnglish(w.slice(w.length - 2, w.length))
 
-  if (/(?:^|[^a-z])[a-z]$/i.test(w))
-    return tailEnglishInitial(last)
+    if (/(?:^|[^a-z])[a-z]$/i.test(w))
+      return tailEnglishInitial(last)
 
-  if (/[a-z][^a-z]?$/i.test(w))
-    return tailEnglishInitial(w[w.length - 2])
+    if (/[a-z][^a-z]?$/i.test(w))
+      return tailEnglishInitial(w[w.length - 2])
 
-  return tail(w.slice(0, w.length - 1))
+    return go(w.slice(0, w.length - 1))
+    }
+
+  return go(word0)
 }
 
 // hasTail : string -> boolean

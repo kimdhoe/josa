@@ -1,6 +1,6 @@
 {
   "name": "josa",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Handles josa selection for dynamically generated strings",
   "repository": {
     "type": "git",

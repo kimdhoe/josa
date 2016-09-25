@@ -186,7 +186,7 @@ josa('왕#{이?}여 나그네#{이?}여')
 명사에 맞는 조사를 찾아주는 함수를 반환합니다.
 
 ```javascript
-import getJosaPicker from 'josa/lib/util'
+import { getJosaPicker } from 'josa/lib/util'
 // CommonJS:
 // const getJosaPicker = require('josa/lib/util').getJosaPicker
 
@@ -201,7 +201,7 @@ eulLeul('콜라')  // => '를'
 명사에 조사를 붙이는 함수를 반환합니다.
 
 ```javascript
-import makeJosaify from 'josa/lib/util'
+import { makeJosaify } from 'josa/lib/util'
 // CommonJS:
 // const makeJosaify = require('josa/lib/util').makeJosaify
 

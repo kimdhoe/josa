@@ -4,7 +4,7 @@ import { get } from './josaPicker'
 //   - Produces a given word with a josa appended.
 
 // makeJosaify : Josa -> Josaify
-// Given a josa, produces a josaify function.
+// Given a josa, produces a josaify.
 const makeJosaify = josa => word =>
   word + get(josa)(word)
 

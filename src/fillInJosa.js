@@ -5,7 +5,7 @@ import { get } from './josaPicker'
 const fillInJosa = str =>
              /*  +++(___ ____ ____)#{---------} */
   str.replace( /(\S+(?:\([^)]*\))?)#\{([^}]+)\}/g
-             , (_, word, josa) => word + get(josa.trim())(word)
+             , (_, noun, josa) => noun + get(josa.trim())(noun)
              )
 
 export default fillInJosa

@@ -51,6 +51,17 @@ josa('값#{가} 7#{으로} 바뀐다.')
 </script>
 ```
 
+### [Test REPL](https://kimdhoe.github.io/josa-app)
+
+Josa의 주 함수가 받은 문자열을 어떻게 바꾸는지 간편하게 시험해볼 수 있는 REPL 형식의 웹프로그램입니다.
+
+https://kimdhoe.github.io/josa-app
+
+- `↑`: 이전 입력
+- `↓`: 다음 입력
+- `command-k` / `ctrl-l`: 화면 초기화
+- `ctrl-u`: 입력창 초기화
+
 ## 특징
 
 - 바로 앞의 명사에 따라 플레이스홀더가 적절한 조사로 바뀌거나 없어집니다.

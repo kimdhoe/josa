@@ -1,11 +1,16 @@
-// tailHangul : string -> number
-// Produces the tail consonant value of c.
+// A TailConsonant is an integer[0, 27].
+//   - There are 27 possible tail consonants.
+//   - 0 means no tail consonant.
+//   - http://gernot-katzers-spice-pages.com/var/korean_hangul_unicode.html
+
+// tailHangul : string -> TailConsonant
+// Produces the tail-consonant of c.
 // Assume c is a single-letter Hangul string.
 const tailHangul = c =>
   (c.charCodeAt(0) - 44032) % 28
 
-// tailDigit : string -> number
-// Produces the tail consonant value of d.
+// tailDigit : string -> TailConsonant
+// Produces the tail-consonant of d.
 // Assume d is a single-letter digit.
 const tailDigit = d => {
   switch (d) {
@@ -22,8 +27,8 @@ const tailDigit = d => {
   }
 }
 
-// tailEnglish : string -> number
-// Produces the tail consonant value of cc.
+// tailEnglish : string -> TailConsonant
+// Produces the tail-consonant of cc.
 // Assume cc is a two-letter English string.
 const tailEnglish = cc =>
   /.n/i.test(cc) ?  4 :
@@ -36,8 +41,8 @@ const tailEnglish = cc =>
   /ng/i.test(cc) ? 21 :
   /* else */        0
 
-// tailEnglishInitial : string -> number
-// Produces the tail consonant value of c.
+// tailEnglishInitial : string -> TailConsonant
+// Produces the tail-consonant of c.
 // Assume c is a single-letter English string.
 const tailEnglishInitial = c => {
   switch (c.toLowerCase()) {
@@ -49,12 +54,10 @@ const tailEnglishInitial = c => {
   }
 }
 
-// tail : string -> number
-// Produces the tail consonant value of the last letter (if possible).
-// The return value 0 means no tail consonant.
-//   - http://gernot-katzers-spice-pages.com/var/korean_hangul_unicode.html
+// tail : string -> TailConsonant
+// Produces the tail-consonant of the last letter (if possible).
 const tail = word0 => {
-  // go : string -> number
+  // go : string -> TailConsonant
   const go = word => {
     if (!word)
       throw new Error(

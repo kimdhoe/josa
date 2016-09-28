@@ -6,6 +6,8 @@
 // tailHangul : string -> TailConsonant
 // Produces the tail-consonant of c.
 // Assume c is a single-letter Hangul string.
+//   - 44032 (AC00) is code-point of the first Hangul letter, which is 가.
+//   - 28 = the number of possible tail consonants + 1
 const tailHangul = c =>
   (c.charCodeAt(0) - 44032) % 28
 

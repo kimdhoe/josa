@@ -14,20 +14,8 @@ const tailHangul = c =>
 // tailDigit : string -> TailConsonant
 // Produces the tail-consonant of d.
 // Assume d is a single-letter digit.
-const tailDigit = d => {
-  switch (d) {
-    case '2':
-    case '4':
-    case '5':
-    case '9': return  0
-    case '1':
-    case '7':
-    case '8': return  8
-    case '0': return 21
-    case '3': return 16
-    case '6': return  1
-  }
-}
+const tailDigit = d =>
+  [21, 8, 0, 16, 0, 0, 1, 8, 8, 0][d]
 
 // tailEnglish : string -> TailConsonant
 // Produces the tail-consonant of cc.

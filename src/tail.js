@@ -45,38 +45,32 @@ const tailEnglishInitial = c => {
 }
 
 // tail : string -> TailConsonant
-// Produces the tail-consonant of the last letter (if possible).
-const tail = word0 => {
-  // go : string -> TailConsonant
-  const go = word => {
-    if (!word)
-      throw new Error(
-        "There's no letter that can possibly have a tail consonant: " + word0
-      )
+// Produces the tail-consonant of the last letter.
+// If there isn't any recognizable letter, produces 0 (no tail-consonant).
+const tail = word => {
+  if (!word)
+    return 0
 
-    // Ignore text inside parentheses.
-    const w    = word.replace(/\([^)]*\)$/, '')
-    const last = w[w.length - 1]
+  // Ignore text inside parentheses.
+  const w    = word.replace(/\([^)]*\)$/, '')
+  const last = w[w.length - 1]
 
-    if (/[가-힣]/.test(last))
-      return tailHangul(last)
+  if (/[가-힣]/.test(last))
+    return tailHangul(last)
 
-    if (/\d/.test(last))
-      return tailDigit(last)
+  if (/\d/.test(last))
+    return tailDigit(last)
 
-    if (/[a-z]{2}$/i.test(w))
-      return tailEnglish(w.slice(w.length - 2, w.length))
+  if (/[a-z]{2}$/i.test(w))
+    return tailEnglish(w.slice(w.length - 2, w.length))
 
-    if (/(?:^|[^a-z])[a-z]$/i.test(w))
-      return tailEnglishInitial(last)
+  if (/(?:^|[^a-z])[a-z]$/i.test(w))
+    return tailEnglishInitial(last)
 
-    if (/[a-z][^a-z]?$/i.test(w))
-      return tailEnglishInitial(w[w.length - 2])
+  if (/[a-z][^a-z]?$/i.test(w))
+    return tailEnglishInitial(w[w.length - 2])
 
-    return go(w.slice(0, w.length - 1))
-  }
-
-  return go(word0)
+  return tail(w.slice(0, w.length - 1))
 }
 
 // hasTail : string -> boolean

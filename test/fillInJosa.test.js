@@ -86,6 +86,9 @@ describe('fillInJosa()', () => {
     assert.equal( fillInJosa('Engineer#{은} 엔지니어#{이?}다')
                 , 'Engineer는 엔지니어다'
                 )
+    assert.equal( fillInJosa('"Apple"#{는} 사과#{이?}다')
+                , '"Apple"은 사과다'
+                )
   })
 
   it('can handle English initials', () => {

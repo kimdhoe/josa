@@ -67,7 +67,7 @@ const tail = word => {
   if (/(?:^|[^a-z])[a-z]$/i.test(w))
     return tailEnglishInitial(last)
 
-  if (/[a-z][^a-z]?$/i.test(w))
+  if (/(^|[^a-z])[a-z][^a-z]?$/i.test(w))
     return tailEnglishInitial(w[w.length - 2])
 
   return tail(w.slice(0, w.length - 1))

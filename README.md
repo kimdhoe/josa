@@ -2,12 +2,24 @@
   <h1>josa</h1>
 
 <p>
-  [![Travis](https://img.shields.io/travis/kimdhoe/josa.svg)](https://travis-ci.org/kimdhoe/josa)
-  [![Codecov](https://img.shields.io/codecov/c/github/kimdhoe/josa.svg)](https://codecov.io/gh/kimdhoe/josa)
-  [![license](https://img.shields.io/github/license/kimdhoe/josa.svg)](https://github.com/kimdhoe/josa/blob/master/LICENSE.md)
-  [![npm](https://img.shields.io/npm/v/josa.svg)](https://www.npmjs.com/package/josa)
-  [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
-  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
+  <a href="https://travis-ci.org/kimdhoe/josa">
+    <img src="https://img.shields.io/travis/kimdhoe/josa.svg" alt="Travis">
+  </a>
+  <a href="https://codecov.io/gh/kimdhoe/josa">
+    <img src="https://img.shields.io/codecov/c/github/kimdhoe/josa.svg" alt="Codecov">
+  </a>
+  <a href="https://github.com/kimdhoe/josa/blob/master/LICENSE.md">
+    <img src="https://img.shields.io/github/license/kimdhoe/josa.svg" alt="license">
+  </a>
+  <a href="https://www.npmjs.com/package/josa">
+    <img src="https://img.shields.io/npm/v/josa.svg" alt="npm">
+  </a>
+  <a href="http://standardjs.com/">
+    <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide">
+  </a>
+  <a href="http://makeapullrequest.com">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs Welcome">
+  </a>
 </p>
 <p>
   프로그램에서 한글을 사용할 때 마주치는 문제 중 하나는 명사가 동적으로 생성되는 경우 조사도 이에 맞춰 동적으로 결정되어야 한다는 점입니다. _josa_는 이 문제를 해결하기 위한 라이브러리로, 입력받은 명사의 형태에 적법한 조사를 찾아줍니다.

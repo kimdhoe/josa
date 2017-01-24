@@ -22,7 +22,7 @@
     </a>
   </p>
   <p>
-    프로그램에서 한글을 사용할 때 마주치는 문제 중 하나는 명사가 동적으로 생성되는 경우 조사도 이에 맞춰 동적으로 결정되어야 한다는 점입니다. josa는 이 문제를 해결하기 위한 라이브러리로, 입력받은 명사의 형태에 적법한 조사를 찾아줍니다.
+    프로그램에서 한글을 사용할 때 마주치는 문제 중 하나는 명사가 동적으로 생성되는 경우 조사도 이에 맞춰 동적으로 결정되어야 한다는 점입니다. <strong>josa</strong>는 이 문제를 해결하기 위한 라이브러리로, 입력받은 명사의 형태에 적법한 조사를 찾아줍니다.
   </p>
 </div>
 
@@ -76,11 +76,15 @@ https://kimdhoe.github.io/josa-app
 
 ## API
 
-### `josa(str)`
+- [`josa`](#josastr)
+- [`getJosaPicker`](#getJosaPickerjosa)
+- [`makeJosaify`](#makeJosaifyjosa)
+
+### josa(str)
 
 조사 플레이스홀더가 포함된 문자열을 입력받아 완성된 문자열을 반환합니다.
 
-#### `str`
+#### str
 
 - _Required_
 - Type: `string`
@@ -211,11 +215,11 @@ josa('왕#{이?}여 나그네#{이?}여')
 // => '왕이여 나그네여'
 ```
 
-### `getJosaPicker(josa)`
+### getJosaPicker(josa)
 
 명사에 맞는 조사를 찾아주는 함수를 반환합니다.
 
-#### `josa`
+#### josa
 
 - _Required_
 - Type: `string`
@@ -227,11 +231,11 @@ eulLeul('치킨')  // => '을'
 eulLeul('콜라')  // => '를'
 ```
 
-### `makeJosaify(josa)`
+### makeJosaify(josa)
 
 명사에 조사를 붙이는 함수를 반환합니다.
 
-#### `josa`
+#### josa
 
 - _Required_
 - Type: `string`

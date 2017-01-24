@@ -35,8 +35,9 @@ const put = (j1, j2, f) => {
 const get = j => {
   const f = table[j]
 
-  if (!f)
+  if (!f) {
     throw new Error(`Cannot handle this josa: ${j}`)
+  }
 
   return f
 }

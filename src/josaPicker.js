@@ -24,8 +24,9 @@ const table = {}
 const put = (j1, j2, f) => {
   table[j1] = f
 
-  if (j2)
+  if (j2) {
     table[j2] = f
+  }
 }
 
 // get : Josa -> JosaPicker

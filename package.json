@@ -41,6 +41,7 @@
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
     "chai": "^3.5.0",
+    "jongseong": "^0.4.2",
     "mocha": "^3.0.2",
     "uglify-js": "^2.7.3"
   }

@@ -1,4 +1,4 @@
-import { tail, hasTail } from './tail'
+import { code, hasJongseong } from 'jongseong'
 
 // A Josa is one of:
 //   - '은'  - '는'
@@ -43,7 +43,7 @@ const get = j => {
 // makeJosaPicker : Josa * Josa -> JosaPicker
 // Given two josa options, produces a josa-picker.
 const makeJosaPicker = (j1, j2) => w =>
-  hasTail(w) ? j1.replace(/\?$/, '') : j2
+  hasJongseong(w) ? j1.replace(/\?$/, '') : j2
 
 // install : Josa * Josa * JosaPicker? -> void
 //   - j1 is for a word with a tail consonant.
@@ -63,7 +63,7 @@ install('이어', '여')
 install('이에요', '예요')
 install('아', '야')
 install('이?', '')
-install('으로', '로', w => tail(w) === 8 ? '로' : makeJosaPicker('으로', '로')(w))
+install('으로', '로', w => code(w) === 8 ? '로' : makeJosaPicker('으로', '로')(w))
 
 export { makeJosaPicker
        , get

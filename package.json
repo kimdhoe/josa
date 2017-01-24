@@ -92,6 +92,7 @@
     "rimraf": "^2.5.4",
     "standard": "^8.6.0",
     "uglify-js": "^2.7.3",
+    "validate-commit-msg": "^2.10.1",
     "webpack": "^1.14.0"
   },
   "config": {

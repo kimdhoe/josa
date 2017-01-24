@@ -38,6 +38,19 @@
   ],
   "author": "kimdhoe <kimdhoe1@gmail.com>",
   "license": "ISC",
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "env": {
+      "test":
+      {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+  },
   "nyc": {
     "lines": 99,
     "statements": 99,

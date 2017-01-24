@@ -1,3 +1,8 @@
 import fillInJosa from './fillInJosa'
+import { getJosaPicker, makeJosaify } from './util'
 
-export default fillInJosa
+export {
+  fillInJosa as josa,
+  getJosaPicker,
+  makeJosaify
+}

@@ -1,30 +1,36 @@
-# Josa
+<div align="center">
+  <h1>josa</h1>
 
-Josa는 선행명사의 형태에 따라 적절한 조사를 찾아줍니다.
+<p>
+  [![Travis](https://img.shields.io/travis/kimdhoe/josa.svg)](https://travis-ci.org/kimdhoe/josa)
+  [![Codecov](https://img.shields.io/codecov/c/github/kimdhoe/josa.svg)](https://codecov.io/gh/kimdhoe/josa)
+  [![license](https://img.shields.io/github/license/kimdhoe/josa.svg)](https://github.com/kimdhoe/josa/blob/master/LICENSE.md)
+  [![npm](https://img.shields.io/npm/v/josa.svg)](https://www.npmjs.com/package/josa)
+  [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
+</p>
+<p>
+  프로그램에서 한글을 사용할 때 마주치는 문제 중 하나는 명사가 동적으로 생성되는 경우 조사도 이에 맞춰 동적으로 결정되어야 한다는 점입니다. _josa_는 이 문제를 해결하기 위한 라이브러리로, 입력받은 명사의 형태에 적법한 조사를 찾아줍니다.
+</p>
+</div>
 
 ## 설치
 
 ```shell
-npm install josa
+npm install --save josa
 ```
 
 ## 사용법
 
 ### Node.js
 
-Josa는 기본적으로 주 함수 하나만을 노출하고 있습니다.
-
 ``` javascript
 // ES2015 module
-import josa from 'josa'
+import { josa, getJosaPicker, makeJosaify } from 'josa'
 
 // CommonJS
-const josa = require('josa').default
-```
+const { josa, getJosaPicker, makeJosaify } = require('josa')
 
-이 함수는 입력받은 문자열에 포함된 플레이스홀더를 적절한 조사로 대체합니다.
-
-``` javascript
 josa('친구#{이} 선생님#{와} 함께 학교#{으로} 간다.')
 // => '친구가 선생님과 함께 학교로 간다.'
 
@@ -40,20 +46,14 @@ josa('값#{가} 7#{으로} 바뀐다.')
 // => '값이 7로 바뀐다.'
 ```
 
-### 브라우저
+### UMD
 
-`/dist/josa.min.js` 파일은 빌드 과정 없이 바로 브라우저에서 사용하는 용도로 포함되었습니다.
+- `/dist/index.umd.js`
+- `/dist/index.umd.min.js`
 
-```html
-<script src="path/to/josa.min.js"></script>
-<script>
-    alert( josa('커피#{을}') )
-</script>
-```
+### 테스트 REPL
 
-### [Test REPL](https://kimdhoe.github.io/josa-app)
-
-Josa의 주 함수가 받은 문자열을 어떻게 바꾸는지 간편하게 시험해볼 수 있는 REPL 형식의 웹프로그램입니다.
+Josa의 주 함수가 받은 문자열을 어떻게 바꾸는지 간편하게 시험해볼 수 있는 REPL 형식의 웹 어플리케이션입니다.
 
 https://kimdhoe.github.io/josa-app
 
@@ -62,7 +62,18 @@ https://kimdhoe.github.io/josa-app
 - `command-k` / `ctrl-l`: 화면 초기화
 - `ctrl-u`: 입력창 초기화
 
-## 특징
+## API
+
+### `josa(str)`
+
+조사 플레이스홀더가 포함된 문자열을 입력받아 완성된 문자열을 반환합니다.
+
+#### `str`
+
+- _Required_
+- Type: `string`
+
+#### 특징
 
 - 바로 앞의 명사에 따라 플레이스홀더가 적절한 조사로 바뀌거나 없어집니다.
   - `커피#{은} ==> 커피는`
@@ -71,6 +82,9 @@ https://kimdhoe.github.io/josa-app
 
 - 플레이스홀더는 해시(`#`) 기호가 붙은 중괄호로 표기하며, 선행명사와 플레이스홀더 사이에 공백이 없어야 합니다.
 
+- 플레이스홀더 앞에 소괄호(`(`, `)`)로 묶인 글이 올 때 조사의 형태는 괄호 앞의 단어에 따릅니다.
+  - `둘리(아기 공룡)#{은} ==> 둘리(아기 공룡)는`
+
 - 선행명사가 숫자나 영어 알파벳으로 끝나는 경우도 지원합니다.
   - `15 더하기 10#{는} 25#{이에요} ==> 15 더하기 10은 25예요`
   - `apple#{는} ==> apple은`
@@ -78,12 +92,9 @@ https://kimdhoe.github.io/josa-app
   - `A.P.I.#{이} ==> A.P.I.가`
   - `L#{를} ==> L을`
 
-- 플레이스홀더 앞에 소괄호(`(`, `)`)로 묶인 글이 올 때 조사의 형태는 괄호 앞의 단어에 따릅니다.
-  - `둘리(아기 공룡)#{은} ==> 둘리(아기 공룡)는`
+#### 플레이스홀더
 
-## 플레이스홀더
-
-### 은/는 ( `#{은}` / `#{는}` )
+##### 은/는 ( `#{은}` / `#{는}` )
 
 ```javascript
 josa('호랑이#{은} 사슴#{는}')
@@ -93,63 +104,63 @@ josa('호랑이#{은}커녕 사슴#{는}커녕')
 // => '호랑이는커녕 사슴은커녕'
 ```
 
-### 이/가 ( `#{이}` / `#{가}` )
+##### 이/가 ( `#{이}` / `#{가}` )
 
 ```javascript
 josa('호랑이#{이} 사슴#{가}')
 // => '호랑이가 사슴이'
 ```
 
-### 을/를 ( `#{을}` / `#{를}` )
+##### 을/를 ( `#{을}` / `#{를}` )
 
 ```javascript
 josa('호랑이#{을} 사슴#{를}')
 // => '호랑이를 사슴을'
 ```
 
-### 와/과 ( `#{와}` / `#{과}` )
+##### 와/과 ( `#{와}` / `#{과}` )
 
 ```javascript
 josa('호랑이#{과} 사슴#{와} 너구리')
 // => '호랑이와 사슴과 너구리'
 ```
 
-### 이어/여 ( `#{이어}` / `#{여}` )
+##### 이어/여 ( `#{이어}` / `#{여}` )
 
 ```javascript
 josa('호랑이#{이어}서 사슴#{여}서')
 // => '호랑이여서 사슴이어서'
 ```
 
-### 으로/로 ( `#{으로}` / `#{로}` )
+##### 으로/로 ( `#{으로}` / `#{로}` )
 
 ```javascript
 josa('여기#{으로}부터 집#{로} 희의실#{으로}')
 // => '여기로부터 집으로 회의실로'
 ```
 
-### 이에요/예요 ( `#{이에요}` / `#{예요}` )
+##### 이에요/예요 ( `#{이에요}` / `#{예요}` )
 
 ```javascript
 josa('여우#{이에요} 사슴#{예요}')
 // => '여우예요 사슴이에요'
 ```
 
-### 이었/였 ( `#{이었}` / `#{였}` )
+##### 이었/였 ( `#{이었}` / `#{였}` )
 
 ```javascript
 josa('호랑이#{이었}는데 사슴#{였}나')
 // => '호랑이였는데 사슴이었나'
 ```
 
-### 아/야 ( `#{아}` / `#{야}` )
+##### 아/야 ( `#{아}` / `#{야}` )
 
 ```javascript
 josa('두꺼비#{아} 밝은 달#{야}')
 // => '두꺼비야 밝은 달아'
 ```
 
-### 이/- ( `#{이?}` )
+##### 이/- ( `#{이?}` )
 
 여러 상황에서 쓰일 수 있는 플레이스홀더로, `'이'` 혹은 빈 문자열로 바뀝니다.
 
@@ -188,34 +199,32 @@ josa('왕#{이?}여 나그네#{이?}여')
 // => '왕이여 나그네여'
 ```
 
-## 기타
-
-주 함수 외에 이용할 수 있는 함수가 둘 있습니다.
-
-### `getJosaPicker`
+### `getJosaPicker(josa)`
 
 명사에 맞는 조사를 찾아주는 함수를 반환합니다.
 
-```javascript
-import { getJosaPicker } from 'josa/lib/util'
-// CommonJS:
-// const getJosaPicker = require('josa/lib/util').getJosaPicker
+#### `josa`
 
+- _Required_
+- Type: `string`
+
+```javascript
 const eulLeul = getJosaPicker('을')  // 혹은 getJosaPicker('를')
 
 eulLeul('치킨')  // => '을'
 eulLeul('콜라')  // => '를'
 ```
 
-### `makeJosaify`
+### `makeJosaify(josa)`
 
 명사에 조사를 붙이는 함수를 반환합니다.
 
-```javascript
-import { makeJosaify } from 'josa/lib/util'
-// CommonJS:
-// const makeJosaify = require('josa/lib/util').makeJosaify
+#### `josa`
 
+- _Required_
+- Type: `string`
+
+```javascript
 const eulLeulify = makeJosaify('을')  // 혹은 makeJosaify('를')
 
 eulLeulify('치킨')  // => '치킨을'
@@ -229,3 +238,7 @@ npm install
 
 npm test
 ```
+
+## 라이센스
+
+ISC @ Kim Donghee

@@ -67,6 +67,7 @@ install('아', '야')
 install('이?', '')
 install('으로', '로', w => code(w) === 8 ? '로' : makeJosaPicker('으로', '로')(w))
 
-export { makeJosaPicker
-       , get
-       }
+export {
+  makeJosaPicker,
+  get
+}

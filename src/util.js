@@ -11,6 +11,7 @@ const makeJosaify = josa => word =>
 // getJosaPicker : Josa -> JosaPicker
 const getJosaPicker = get
 
-export { getJosaPicker
-       , makeJosaify
-       }
+export {
+  getJosaPicker,
+  makeJosaify
+}

@@ -1,8 +1,6 @@
 import { assert } from 'chai'
 
-import { makeJosaPicker
-       , get
-       } from '../src/josaPicker'
+import { makeJosaPicker, get } from '../src/josaPicker'
 
 describe('#Base Functions', () => {
   describe('makeJosaPicker()', () => {
@@ -14,9 +12,10 @@ describe('#Base Functions', () => {
 
   describe('get()', () => {
     it('throws an error given an unknown josa.', () => {
-      assert.throws( () => get('갉')
-                   , /Cannot handle this josa/
-                   )
+      assert.throws(
+        () => get('갉'),
+        /Cannot handle this josa/
+      )
     })
   })
 

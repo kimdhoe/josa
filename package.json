@@ -11,10 +11,11 @@
   },
   "main": "lib/index.js",
   "scripts": {
+    "commit": "git-cz",
     "lint": "standard src/**/*.js",
     "test": "cross-env NODE_ENV=test nyc mocha",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "validate": "npm-run-all --parallel test build",
+    "validate": "npm-run-all --parallel lint test build",
     "prebuild": "rimraf dist",
     "build": "npm-run-all --parallel build:*",
     "build:main": "babel --out-dir dist src",
@@ -82,7 +83,9 @@
     "babel-register": "^6.14.0",
     "chai": "^3.5.0",
     "codecov": "^1.0.1",
+    "commitizen": "^2.9.5",
     "cross-env": "^3.1.4",
+    "cz-conventional-changelog": "^1.2.0",
     "mocha": "^3.0.2",
     "npm-run-all": "^4.0.1",
     "nyc": "^10.1.2",
@@ -90,5 +93,10 @@
     "standard": "^8.6.0",
     "uglify-js": "^2.7.3",
     "webpack": "^1.14.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }

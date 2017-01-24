@@ -9,7 +9,7 @@
   "bugs": {
     "url": "https://github.com/kimdhoe/josa/issues"
   },
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "precommit": "npm run validate",
     "commitmsg": "validate-commit-msg",

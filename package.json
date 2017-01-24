@@ -11,13 +11,14 @@
   },
   "main": "lib/index.js",
   "scripts": {
+    "test": "nyc mocha",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "validate": "npm-run-all --parallel test build",
     "prebuild": "rimraf dist",
     "build": "npm-run-all --parallel build:*",
     "build:main": "babel --out-dir dist --ignore *.test.js src",
     "build:umd": "webpack --output-filename index.umd.js",
-    "build:umd.min": "webpack --output-filename index.umd.min.js -p",
-    "test": "nyc mocha",
-    "validate": "npm-run-all --parallel test build"
+    "build:umd.min": "webpack --output-filename index.umd.min.js -p"
   },
   "files": [
     "dist"
@@ -67,6 +68,7 @@
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
     "chai": "^3.5.0",
+    "codecov": "^1.0.1",
     "mocha": "^3.0.2",
     "npm-run-all": "^4.0.1",
     "nyc": "^10.1.2",

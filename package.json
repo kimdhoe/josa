@@ -41,7 +41,7 @@
     "josa"
   ],
   "author": "Kim Donghee <kimdhoe1@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "babel": {
     "presets": [
       "es2015"

@@ -253,4 +253,4 @@ npm test
 
 ## 라이센스
 
-ISC @ Kim Donghee
+MIT @ Kim Donghee

@@ -77,8 +77,8 @@ https://kimdhoe.github.io/josa-app
 ## API
 
 - [`josa`](#josastr)
-- [`getJosaPicker`](#getJosaPickerjosa)
-- [`makeJosaify`](#makeJosaifyjosa)
+- [`getJosaPicker`](#getjosapickerjosa)
+- [`makeJosaify`](#makejosaifyjosa)
 
 ### josa(str)
 

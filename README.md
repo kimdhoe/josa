@@ -43,7 +43,9 @@ import { josa, getJosaPicker, makeJosaify } from 'josa'
 
 // CommonJS
 const { josa, getJosaPicker, makeJosaify } = require('josa')
+```
 
+```javascript
 josa('친구#{이} 선생님#{와} 함께 학교#{으로} 간다.')
 // => '친구가 선생님과 함께 학교로 간다.'
 
@@ -81,16 +83,9 @@ https://kimdhoe.github.io/josa-app
 - [`getJosaPicker`](#getjosapickerjosa)
 - [`makeJosaify`](#makejosaifyjosa)
 
-### josa(str)
+### josa(sentence)
 
 조사 플레이스홀더가 포함된 문자열을 입력받아 완성된 문자열을 반환합니다.
-
-#### str
-
-- _Required_
-- Type: `string`
-
-#### 특징
 
 - 바로 앞의 명사에 따라 플레이스홀더가 적절한 조사로 바뀌거나 없어집니다.
   - `커피#{은} ==> 커피는`
@@ -108,6 +103,11 @@ https://kimdhoe.github.io/josa-app
   - `tiger#{과} ==> tiger와`
   - `A.P.I.#{이} ==> A.P.I.가`
   - `L#{를} ==> L을`
+
+#### sentence
+
+_Required_
+Type: `string`
 
 #### 플레이스홀더
 
@@ -218,12 +218,15 @@ josa('왕#{이?}여 나그네#{이?}여')
 
 ### getJosaPicker(josa)
 
-명사에 맞는 조사를 찾아주는 함수를 반환합니다.
+명사에 맞는 조사를 찾아주는 함수를 반환합니다. 예를 들면, 임의의 명사에 대해 _을_과 _를_ 중 하나를 선택하는 함수가 필요할 때 사용할 수 있습니다.
 
 #### josa
 
-- _Required_
-- Type: `string`
+_Required_
+Type: `string`
+
+지원하는 조사 중 하나. (예: _은_, _는_, _이_, _가_, _이?_, ...)
+두 개의 선택지 중 아무 것이나 사용가능.
 
 ```javascript
 const eulLeul = getJosaPicker('을')  // 혹은 getJosaPicker('를')
@@ -238,8 +241,11 @@ eulLeul('콜라')  // => '를'
 
 #### josa
 
-- _Required_
-- Type: `string`
+_Required_
+Type: `string`
+
+지원하는 조사 중 하나. (예: _은_, _는_, _이_, _가_, _이?_, ...)
+두 개의 선택지 중 아무 것이나 사용가능.
 
 ```javascript
 const eulLeulify = makeJosaify('을')  // 혹은 makeJosaify('를')

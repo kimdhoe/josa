@@ -11,6 +11,7 @@
     <a href="https://github.com/kimdhoe/josa/blob/master/LICENSE.md">
       <img src="https://img.shields.io/github/license/kimdhoe/josa.svg" alt="license">
     </a>
+    <br>
     <a href="https://www.npmjs.com/package/josa">
       <img src="https://img.shields.io/npm/v/josa.svg" alt="npm">
     </a>
@@ -257,4 +258,4 @@ npm test
 
 ## 라이센스
 
-MIT @ Kim Donghee
+MIT © Kim Donghee

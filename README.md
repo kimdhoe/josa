@@ -106,8 +106,8 @@ https://kimdhoe.github.io/josa-app
 
 #### sentence
 
-_Required_
-Type: `string`
+- _Required_
+- Type: `string`
 
 #### 플레이스홀더
 
@@ -222,8 +222,8 @@ josa('왕#{이?}여 나그네#{이?}여')
 
 #### josa
 
-_Required_
-Type: `string`
+- _Required_
+- Type: `string`
 
 지원하는 조사 중 하나. (예: _은_, _는_, _이_, _가_, _이?_, ...)
 두 개의 선택지 중 아무 것이나 사용가능.
@@ -241,8 +241,8 @@ eulLeul('콜라')  // => '를'
 
 #### josa
 
-_Required_
-Type: `string`
+- _Required_
+- Type: `string`
 
 지원하는 조사 중 하나. (예: _은_, _는_, _이_, _가_, _이?_, ...)
 두 개의 선택지 중 아무 것이나 사용가능.

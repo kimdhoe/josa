@@ -9,5 +9,10 @@ describe('makeJosaify()', () => {
     assert.isFunction(josaify)
     assert.equal(josaify('수박'), '수박을')
     assert.equal(josaify('사과'), '사과를')
+
+    const josaify2 = makeJosaify('이?')
+
+    assert.equal(josaify2('새'), '새')
+    assert.equal(josaify2('사슴'), '사슴이')
   })
 })

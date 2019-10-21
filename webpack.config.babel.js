@@ -1,25 +1,31 @@
-import { join } from 'path'
+import { join } from "path";
 
-const context = join(__dirname, 'src')
+const context = join(__dirname, "src");
 
 const config = {
   context,
-  entry: './index',
+  mode: "production",
+  entry: "./index",
   output: {
-    path: join(__dirname, 'dist'),
-    libraryTarget: 'umd',
-    library: 'josa'
+    path: join(__dirname, "dist"),
+    libraryTarget: "umd",
+    library: "josa"
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loaders: [ 'babel' ],
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"]
+          }
+        },
         include: context
       }
     ]
   }
-}
+};
 
-export default config
+export default config;

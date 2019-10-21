@@ -30,7 +30,7 @@
 ## 설치
 
 ```shell
-npm install --save josa
+npm install josa
 ```
 
 ## 사용법
@@ -38,7 +38,7 @@ npm install --save josa
 ### Node.js
 
 ``` javascript
-// ES2015 module
+// ECMA
 import { josa, getJosaPicker, makeJosaify } from 'josa'
 
 // CommonJS
@@ -218,7 +218,7 @@ josa('왕#{이?}여 나그네#{이?}여')
 
 ### getJosaPicker(josa)
 
-명사에 맞는 조사를 찾아주는 함수를 반환합니다. 예를 들면, 임의의 명사에 대해 _을_과 _를_ 중 하나를 선택하는 함수가 필요할 때 사용할 수 있습니다.
+명사에 맞는 조사를 찾아주는 함수를 반환합니다. 예를 들면, 임의의 명사에 대해 _을_ 혹은 _를_ 중 하나를 선택하는 함수가 필요할 때 사용할 수 있습니다.
 
 #### josa
 

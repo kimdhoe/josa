@@ -34,8 +34,6 @@ npm install josa
 
 ## 사용법
 
-### Node.js
-
 ``` javascript
 // ECMA
 import { josa, getJosaPicker, makeJosaify } from 'josa'

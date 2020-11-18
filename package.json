@@ -95,7 +95,7 @@
     "npm-run-all": "^4.1.5",
     "nyc": "^14.1.1",
     "rimraf": "^3.0.0",
-    "semantic-release": "^15.13.27",
+    "semantic-release": "^17.2.3",
     "standard": "^14.3.1",
     "uglify-js": "^2.7.3",
     "validate-commit-msg": "^2.10.1",

@@ -99,8 +99,8 @@
     "standard": "^14.3.1",
     "uglify-js": "^2.7.3",
     "validate-commit-msg": "^2.10.1",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "config": {
     "commitizen": {

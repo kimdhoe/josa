@@ -8,7 +8,7 @@
 > 
 > 그동안 이 프로젝트를 지원하고 기여해 주신 모든 분들께 감사드립니다.
 > 
-> **Maintenance Notice**: This project is currently in a low-maintenance state. For new implementations, we recommend checking out [es-hanful](https://github.com/toss/es-hangul) which is actively maintained and offers more features. This repository will remain available for reference.
+> **Maintenance Notice**: This project is currently in a low-maintenance state. For new implementations, we recommend checking out [es-hangul](https://github.com/toss/es-hangul) which is actively maintained and offers more features. This repository will remain available for reference.
 
 
 
